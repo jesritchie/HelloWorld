@@ -14,40 +14,48 @@
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
     </head>
-    <body>
+    <body onload="magic8Ball()">
         <!-- Add your site or application content here -->
         <p id="paragraph">Hello world! This is HTML5 Boilerplate.</p>
 
+        <!--<iframe onload="magic8Ball()" ></iframe>-->
+
+        <p id="demo"></p>
+
         <script>
             function magic8Ball () {
-                switch (Math.floor((Math.random() * 5))) {
-                    case 1:
-                        fortune = "If you can't excel with talent, triumph with effort.";
-                        break;
-                    case 1:
-                        fortune = "Some fortune cookies contain no fortune.";
-                        break;
-                    case 2:
-                        fortune = "You constantly struggle for self improvement - and it shows.";
-                        break;
-                    case 3:
-                        fortune = "To be sure of hitting the target, shoot first and call whatever you hit the target.";
-                        break;
-                    case 4:
-                        fortune = "If there is a key, there must be a door.";
-                        break;
-                    case 5:
-                        fortune = "The Future is Uncertain, Try Again.";
+                var fullFortune = "";
+                for (var i = 0; i < 10; i++){
+                    switch (Math.floor((Math.random() * 5))) {
+                        case 1:
+                            fortune = "If you can't excel with talent, triumph with effort.";
+                            break;
+                        case 2:
+                            fortune = "Some fortune cookies contain no fortune.";
+                            break;
+                        case 3:
+                            fortune = "You constantly struggle for self improvement - and it shows.";
+                            break;
+                        case 4:
+                            fortune = "To be sure of hitting the target, shoot first and call whatever you hit the target.";
+                            break;
+                        case 5:
+                            fortune = "If there is a key, there must be a door.";
+
+                    } //end switch
+
+                    fullFortune += i+1 + " ) " + fortune + '<br />';
 
                 }
-                document.getElementById("Magic8").innerHTML = fortune;
-                return fortune;              // The function returns fortune
+                document.getElementById("demo").innerHTML = fullFortune;
+
+
             }
 
 
 
         </script>
-        <p id="Magic8"></p>
+
         <script src="js/vendor/modernizr-3.5.0.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
